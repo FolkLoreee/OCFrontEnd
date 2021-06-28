@@ -1,9 +1,11 @@
-let participantData = {
+export const participantData = {
   participants: [
     {
       id: 1,
       name: "Johnathan Lee",
-      registered: true,
+      team: "AutoM8",
+      location: "CC14",
+      phone: "9999-9999",
     },
     {
       id: 2,
@@ -32,5 +34,3 @@ let participantData = {
     },
   ],
 };
-
-export default participantData;

@@ -16,7 +16,7 @@ module.exports = {
         short_name: "ocomm-dashboard",
         start_url: "/",
         display: "standalone",
-        icon: "src/assets/favicon.jpg",
+        icon: "src/assets/WTH_Square.jpg",
       },
     },
   ],

@@ -2,7 +2,7 @@ import { Router } from "@reach/router";
 import React from "react";
 
 import Landing from "components/Landing";
-import Dashboard from "components/Dashboard";
+import Events from "components/Events";
 import Participants from "components/Participants";
 
 // import { AuthProvider } from "context/authContext";
@@ -14,8 +14,8 @@ const Index = () => {
     // <AuthProvider>
     <Router basepath="/">
       <Landing path="/landing" />
-      <Dashboard path="/" />
       <Participants path="/participants" />
+      <Events path="/" />
     </Router>
     // </AuthProvider>
   );

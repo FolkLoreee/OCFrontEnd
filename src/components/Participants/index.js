@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "components/Navbar";
-import ParticipantCard from "./ParticipantCard";
 
-// mock data
-import participantData from "mockData/participants";
+import ParticipantCard from "./ParticipantCard";
+import Navbar from "components/Navbar";
+import Header from "components/Header";
+
+import { participantData } from "./mockData";
 
 const Participants = () => {
   const [listOfParticipants, setListOfParticipants] = useState([]);
@@ -29,24 +30,28 @@ const Participants = () => {
 
   return (
     <>
-      <Navbar active="participants" />
-      <div class="flex flex-col p-2">
-        <span class="text-4xl font-bold">Participants</span>
-        <input
-          name="search"
-          onChange={filterSearch}
-          class="rounded bg-gray-200 p-2 my-2"
-          placeholder="John Doe"
-        />
-      </div>
-      <div class="grid grid-cols-6">
-        {filteredListOfParticipants.map((p) => (
-          <ParticipantCard
-            key={p.name}
-            name={p.name}
-            registered={p.registered}
+      <Navbar active="home" />
+      <Header text="Find Participants" />
+      <div class="max-w-7xl mx-auto">
+        <div class="flex p-2">
+          <input
+            name="search"
+            onChange={filterSearch}
+            class="flex w-screen rounded bg-gray-200 p-2 my-2"
+            placeholder="John Doe"
           />
-        ))}
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5">
+          {filteredListOfParticipants.map((p) => (
+            <ParticipantCard
+              key={p.name}
+              name={p.name}
+              team={p.team}
+              location={p.location}
+              phone={p.phone}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
