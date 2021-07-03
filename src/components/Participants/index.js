@@ -41,7 +41,7 @@ const Participants = () => {
             placeholder="John Doe"
           />
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5">
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4">
           {filteredListOfParticipants.map((p) => (
             <ParticipantCard
               key={p.name}
@@ -49,6 +49,7 @@ const Participants = () => {
               team={p.team}
               location={p.location}
               phone={p.phone}
+              registered={p.registered}
             />
           ))}
         </div>

@@ -6,6 +6,7 @@ export const participantData = {
       team: "AutoM8",
       location: "CC14",
       phone: "9999-9999",
+      registered: true,
     },
     {
       id: 2,
