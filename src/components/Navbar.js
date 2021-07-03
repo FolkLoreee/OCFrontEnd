@@ -1,10 +1,26 @@
 import React, { useState } from "react";
+import { navigate } from "@reach/router";
 import { Transition } from "@headlessui/react";
+import firebase from "firebase/app";
+import "firebase/auth";
 
-import WTHLogo from "../assets/WTH_Square.png";
+import WTHLogo from "../assets/favicon.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const logoutProc = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function (_) {
+        navigate("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <nav className="bg-gray-800">
@@ -29,6 +45,13 @@ const Navbar = () => {
                   >
                     Participants
                   </a>
+
+                  <button
+                    onClick={logoutProc}
+                    className="ml-auto text-red-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Log Out
+                  </button>
                 </div>
               </div>
             </div>
@@ -103,6 +126,13 @@ const Navbar = () => {
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Participants
+                </a>
+
+                <a
+                  href="/participants"
+                  className="text-red-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-base font-medium border-t-2"
+                >
+                  Log Out
                 </a>
               </div>
             </div>

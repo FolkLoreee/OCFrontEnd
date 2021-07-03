@@ -7,10 +7,10 @@ const OnlyPublicRoute = ({ component: RouteComponent, ...rest }) => {
   if (!loading) {
     return (
       <>
-        {!user || !user.emailVerified ? (
+        {!user ? (
           <RouteComponent {...rest} />
         ) : (
-          <Redirect to="/dashboard" noThrow />
+          <Redirect to="/events" noThrow />
         )}
       </>
     );

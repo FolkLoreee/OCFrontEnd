@@ -8,13 +8,7 @@ const OnlyPrivateRoute = ({ component: RouteComponent, ...rest }) => {
 
   if (!loading) {
     return (
-      <>
-        {!user || !user.emailVerified ? (
-          <Redirect to="/" noThrow />
-        ) : (
-          <RouteComponent {...rest} />
-        )}
-      </>
+      <>{!user ? <Redirect to="/" noThrow /> : <RouteComponent {...rest} />}</>
     );
   } else
     return (
